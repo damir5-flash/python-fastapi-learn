@@ -10,11 +10,13 @@ app.include_router(
 )
 
 if __name__ == "__main__":
+    print(f"Starting server at {settings.run.host}:{settings.run.port}")
     uvicorn.run(
-        "main:app" ,
+        "main:app",
         host=settings.run.host,
         port=settings.run.port,
-        reload=True)
+        reload=True
+    )
 
 
 @app.get("/")
