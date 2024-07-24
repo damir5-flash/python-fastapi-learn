@@ -13,14 +13,14 @@ class DatabaseHelper:
             echo: bool = False,
             echo_pool: bool = False,
             pool_size: int = 5,
-            max_size: int = 10,
+            max_overflow: int = 10
     ):
         self.engine: AsyncEngine = create_async_engine(
             url=url,
             echo=echo,
             echo_pool=echo_pool,
             pool_size=pool_size,
-            max_size=max_size,
+
         )
         self.session_fabric = async_sessionmaker(
             bind=self.engine,
@@ -35,6 +35,5 @@ db_helper = DatabaseHelper(
     echo=settings.db.echo,
     echo_pool=settings.db.echo_pool,
     pool_size=settings.db.pool_size,
-    max_size=settings.db.max_size,
-
+    max_overflow=settings.db.max_overflow
 )
