@@ -13,7 +13,7 @@ from core.models.db_helper import db_helper
 async def lifespan(apps: FastAPI):
     # start-up
     async with db_helper.engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+        await conn.run_sync(Base.metadata.drop_all)
     yield
     # shut-down
     db_helper.despose()
