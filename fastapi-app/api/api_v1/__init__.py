@@ -1,10 +1,9 @@
 from fastapi import APIRouter
 
 import core.config
-from .api_v1 import router as router_api_v1
+from .users import router as users_router
 
 router = APIRouter(
     prefix=core.config.settings.api.v1.prefix,
 )
-router.include_router(router_api_v1)
-
+router.include_router(users_router)
