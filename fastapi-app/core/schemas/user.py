@@ -1,10 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class UserBase(BaseModel):
-    __tablename__ = 'user'
     username: str
-    email:str
+    email: EmailStr
     password: str
     age: int
 

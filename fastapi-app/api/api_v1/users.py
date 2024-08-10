@@ -21,10 +21,12 @@ async def get_users(session: AsyncSession = Depends(db_helper.session_getter))->
     users = await session.scalars(stmt)
     return users.all()
 
-@router.post("" , response_model=UserRead)
-async def create_user(user_create: UserCreate , session: AsyncSession = Depends(db_helper.session_getter))->User:
-    user = User(**user_create.model_dump())
+
+@router.post("/singup", response_model=UserRead)
+async def create_user(user_create: UserCreate, session: AsyncSession = Depends(db_helper.session_getter)) -> User:
+    user = User(**user_create.dict())  # Используем dict() для получения данных
     session.add(user)
     await session.commit()
+    await session.refresh(user)
     return user
 
