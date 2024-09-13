@@ -1,0 +1,25 @@
+body {
+	align-items: center;
+	background-color: var(--white);
+	background: url("../img/img.jpg");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: grid;
+	height: 100vh;
+	place-items: center;
+	overflow: hidden;
+}
+
+.container {
+	background-color:white;
+	border-radius: 15px;
+	box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25), 0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
+	height: 500px;
+	max-width: var(--max-width);
+	overflow: hidden;
+	position: relative;
+	width: 80%;
+}
+
